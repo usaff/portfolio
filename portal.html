@@ -1,0 +1,222 @@
+<head>
+    <title>Data Professional Career Insights - README</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px; /* Reduced top margin to 5px */
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif;
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+</section>
+      
+<!-- Project Details Section -->
+<section class="project-details">
+    <body>
+        <h1>Plant Co. Gross Profit Performance Dashboard</h1>
+        <h2>Inspiration and Motivation</h2>
+        <p>This dashboard was created to provide in-depth insights into Plant Co.'s gross profit performance across various countries, product types, and time periods. The aim was to enhance decision-making by presenting dynamic and interactive visualizations.</p>
+    
+        <h2>Purpose of the Project</h2>
+        <p>The primary purpose of this project is to analyze year-to-date (YTD) gross profit, compare it to the prior year-to-date (PYTD), and segment profitability by country, product type, and other dimensions.</p>
+    
+        <h2>Key Features</h2>
+        <ul>
+            <li>Dynamic titles and visuals reflecting selected filters.</li>
+            <li>Comparison of YTD vs. PYTD for Gross Profit, Sales, and Quantity.</li>
+            <li>Profitability segmentation by GP%.</li>
+        </ul>
+    
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Power BI for data visualization and report generation.</li>
+            <li>DAX (Data Analysis Expressions) for dynamic calculations and titles.</li>
+        </ul>
+    
+        <h2>Data Source</h2>
+        <p>Data sourced from <a href="https://www.youtube.com/@mo-chen" target="_blank">Mo Chen YouTube Channel</a></p>
+    
+        <h2>How to Use the Dashboard</h2>
+        <p>Users can interact with the dashboard by selecting metrics (Gross Profit, Sales, or Quantity) and filtering by time period. Dynamic titles and visuals will update accordingly.</p>
+    
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Incorporate additional metrics for comprehensive analysis.</li>
+            <li>Improve performance optimization for large data sets.</li>
+        </ul>
+    
+        <h2>DAX Formulas and Dynamic Calculations</h2>
+        <p>These DAX formulas play a critical role in the dynamic calculations and title generation for the Plant Co. Gross Profit Performance Dashboard. Here’s a breakdown of each part, highlighting their purpose and functionality:</p>
+    
+        <h3>Dynamic Titles</h3>
+        <p>To enhance user experience, dynamic titles were created to reflect the selected filters, ensuring context-specific insights.</p>
+        <ul style="list-style-type: square; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6;">
+            <li><strong style="color: #2c3e50;">Column Chart Title:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month"
+                </code><br>
+                <span style="color: #34495e;">Displays the selected metric (e.g., Sales, Quantity, or Gross Profit) alongside "YTD vs PYTD" by Month.</span><br>
+                <strong>Example Output:</strong> 
+                <span style="color: #16a085;">"Gross Profit YTD vs PYTD | Month"</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">Report Title:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    "Plant Co. Performance " & SELECTEDVALUE(Slc_Values[Values]) & " Performance " & SELECTEDVALUE(Dim_Date[Date].[Year])
+                </code><br>
+                <span style="color: #34495e;">Dynamically updates the report title to reflect the selected metric and year.</span><br>
+                <strong>Example Output:</strong> 
+                <span style="color: #16a085;">"Plant Co. Performance Gross Profit Performance 2023"</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">Scatter Chart Title:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    "Account Profitability segmentation | GP% and " & SELECTEDVALUE(Slc_Values[Values])
+                </code><br>
+                <span style="color: #34495e;">Highlights the relationship between GP% and the selected value.</span><br>
+                <strong>Example Output:</strong> 
+                <span style="color: #16a085;">"Account Profitability segmentation | GP% and Gross Profit"</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">Waterfall Chart Title:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month - Country - Product"
+                </code><br>
+                <span style="color: #34495e;">Indicates the breakdown by Month, Country, and Product for the chosen metric.</span><br>
+                <strong>Example Output:</strong> 
+                <span style="color: #16a085;">"Gross Profit YTD vs PYTD | Month - Country - Product"</span>
+            </li>
+        </ul>
+        
+        <h3>Key Performance Metrics</h3>
+        <ul style="list-style-type: square; font-family: Arial, sans-serif; font-size: 14px; line-height: 1.6;">
+            <li><strong style="color: #2c3e50;">Gross Profit Percentage (GP%):</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    GP% = DIVIDE([Gross Profit], [Sales])
+                </code><br>
+                <span style="color: #34495e;">Calculates the profitability ratio by dividing Gross Profit by Sales.</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">PYTD Gross Profit:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    PYTD_GrossProfit = CALCULATE([Gross Profit], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+                </code><br>
+                <span style="color: #34495e;">Calculates Gross Profit for the corresponding period of the previous year, ensuring seasonality is considered.</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">PYTD Quantity and Sales:</strong><br>
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    PYTD_Quantity = CALCULATE([Quantity], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+                </code><br>
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    PYTD_Sales = CALCULATE([Sales], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[InPast] = TRUE)
+                </code><br>
+                <span style="color: #34495e;">Ensures accurate year-over-year comparisons for Quantity and Sales values.</span>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">Switching Contexts for YTD and PYTD:</strong><br>
+                <span style="color: #34495e;">Enables dynamic selection of metrics, enhancing the dashboard's interactivity.</span><br>
+                <strong>Example:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    S_YTD = SWITCH(Selected_Values, "Sales", [YTD_Sales], "Quantity", [YTD_Quantity], "Gross Profit", [YTD_GrossProfit], BLANK())
+                </code>
+            </li>
+        
+            <li><strong style="color: #2c3e50;">YTD vs PYTD Comparison:</strong> 
+                <code style="background-color: #f4f4f4; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b;">
+                    YTD vs PVTD = [S_YTD] - [S_PYTD]
+                </code><br>
+                <span style="color: #34495e;">Displays the variance, helping stakeholders understand growth or decline compared to the previous year.</span>
+            </li>
+        </ul>
+        
+    
+        <h2>Conclusion</h2>
+        <p>These DAX formulas provide a robust analytical framework, enabling dynamic reporting and insightful visualizations. By using dynamic titles, calculating key metrics, and switching contexts seamlessly, this dashboard supports Plant Co.'s profitability and growth objectives.</p>
+    
+        <p>If you need additional customizations or further explanations, feel free to ask!</p>
+    </body>
+</section>
+

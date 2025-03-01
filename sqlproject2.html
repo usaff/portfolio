@@ -1,0 +1,176 @@
+<head>
+    <title>Data Professional Career Insights - README</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px; /* Reduced top margin to 5px */
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif;
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px;">
+    <h1 style="color: #333;">World Layoffs Data Cleaning Project</h1>
+    <p>This project focuses on cleaning and organizing the <code>world_layoffs</code> dataset. The primary objective is to prepare the data for further analysis and visualization, ensuring accuracy and consistency.</p>
+    
+    <h2 style="color: #555;">Why We Are Doing This</h2>
+    <p>The global workforce landscape is rapidly changing, with layoffs impacting various industries. By cleaning and structuring the layoffs data, this project aims to help stakeholders:</p>
+    <ul>
+        <li>Understand global layoff trends.</li>
+        <li>Identify industries most affected by layoffs.</li>
+        <li>Make informed decisions on workforce management and economic policies.</li>
+    </ul>
+    
+    <h2 style="color: #555;">Purpose of the Project</h2>
+    <p>The primary goal of this project is to clean and organize the world layoffs data using SQL, focusing on:</p>
+    <ul>
+        <li>Handling missing or inconsistent data.</li>
+        <li>Standardizing data formats for analysis.</li>
+        <li>Preparing the data for visualization and insights extraction.</li>
+    </ul>
+    
+    <h2 style="color: #555;">Steps Involved</h2>
+    <ul>
+        <li>Creating the database: <code>world_layoffs</code>.</li>
+        <li>Selecting relevant fields from the <code>layoffs</code> table.</li>
+        <li>Cleaning and standardizing the data for consistency.</li>
+        <li>Preparing the data for further analysis and visualization.</li>
+    </ul>
+    
+    <h2 style="color: #555;">Questions Answered and Corresponding Queries</h2>
+    <h3>1. Which industry faced the most layoffs?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT industry, SUM(layoffs) AS total_layoffs
+FROM world_layoffs
+GROUP BY industry
+ORDER BY total_layoffs DESC;
+    </pre>
+    <h3>2. How have layoffs trended over the years?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT year, SUM(layoffs) AS yearly_layoffs
+FROM world_layoffs
+GROUP BY year
+ORDER BY year;
+    </pre>
+    <h3>3. Which country experienced the highest number of layoffs?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT country, SUM(layoffs) AS total_layoffs
+FROM world_layoffs
+GROUP BY country
+ORDER BY total_layoffs DESC;
+    </pre>
+    <h3>4. What is the average number of layoffs per company?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT company, AVG(layoffs) AS avg_layoffs
+FROM world_layoffs
+GROUP BY company
+ORDER BY avg_layoffs DESC;
+    </pre>
+
+    <h2 style="color: #555;">Technologies Used</h2>
+    <ul>
+        <li><b>SQL:</b> For data cleaning and transformation.</li>
+        <li><b>MySQL:</b> Database management and query execution.</li>
+    </ul>
+    
+    <h2 style="color: #555;">Data Source</h2>
+    <p>The dataset used in this project is sourced from Kaggle and provides detailed information on layoffs across different industries worldwide.</p>
+    
+    <h2 style="color: #555;">Future Improvements</h2>
+    <ul>
+        <li>Include more variables such as company size and region for a detailed analysis.</li>
+        <li>Integrate visualization tools like Power BI or Tableau for better insights.</li>
+        <li>Perform predictive analysis to forecast layoff trends.</li>
+    </ul>
+    
+    <h2 style="color: #555;">Contact</h2>
+    <p>For questions or feedback, feel free to reach out via:</p>
+    <ul>
+        <li>Email: <a class="contact-link" href="mailto:yousafawan0000@gmail.com">yousafawan0000@gmail.com</a></li>
+        <li>LinkedIn: <a class="contact-link" href="https://www.linkedin.com/in/muhammad-usaf/">Muhammad Yousaf</a></li>
+    </ul>
+    
+    <h2 style="color: #555;">Conclusion</h2>
+    <p>This project aims to provide a clean and well-structured dataset that can be used to gain meaningful insights into global layoff trends. By organizing the data effectively, stakeholders can make informed decisions and understand the economic impact of workforce changes.</p>
+</body>

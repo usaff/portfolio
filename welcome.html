@@ -1,0 +1,176 @@
+<head>
+    <title>Data Professional Career Insights - README</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px; /* Reduced top margin to 5px */
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif;
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+<section class="project-details">
+    <title>Car Sales Analysis Dashboard</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px;">
+    <h1 style="color: #333;">Car Sales Analysis Dashboard</h1>
+    <p>This project provides a comprehensive analysis of car sales trends, focusing on availability by year and fuel type. By examining historical car data, we aim to provide actionable insights to help car dealerships and manufacturers understand market demand and optimize inventory.</p>
+    <h2 style="color: #555;">Why We Are Doing This</h2>
+    <p>The automotive industry is highly competitive and dynamic, with consumer preferences shifting rapidly. By analyzing historical car availability data, this project aims to help stakeholders:</p>
+    <ul>
+        <li>Identify trends in car availability by year and fuel type.</li>
+        <li>Make informed decisions on inventory management.</li>
+        <li>Understand market demands for different fuel types (e.g., petrol, diesel, CNG).</li>
+    </ul>
+    <h2 style="color: #555;">Purpose of the Project</h2>
+    <p>The primary goal of this project is to create a detailed analysis of car sales data using SQL, focusing on:</p>
+    <ul>
+        <li>Identifying patterns in car availability by year.</li>
+        <li>Understanding the impact of fuel type on car availability.</li>
+        <li>Supporting dealerships and manufacturers in making data-driven decisions.</li>
+    </ul>
+    <h2 style="color: #555;">Questions Answered and Corresponding Queries</h2>
+    <h3>1. How many cars will be available in 2023?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT count(*)
+FROM `car dekho`
+WHERE `year` = 2023;
+    </pre>
+    <h3>2. How many cars were available in 2020, 2021, and 2022?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT count(*)
+FROM `car dekho`
+WHERE year IN (2020, 2021, 2022) 
+GROUP BY `year`;
+    </pre>
+    <h3>3. What is the total count of all cars by year?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT `year`, count(*)
+FROM `car dekho`
+GROUP BY `year`;
+    </pre>
+    <h3>4. How many diesel and petrol cars were available in 2020?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT `fuel`, COUNT(*)
+FROM `car dekho`
+WHERE `year` = 2020 AND `fuel` IN ('diesel', 'petrol')
+GROUP BY `fuel`;
+    </pre>
+    <h3>5. What is the breakdown of all fuel types by year?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT `fuel`, `year`, COUNT(*)
+FROM `car dekho`
+GROUP BY `fuel`, `year`
+ORDER BY `fuel`, `year`;
+    </pre>
+    <h3>6. Which year had more than 100 cars available?</h3>
+    <pre style="background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db;">
+SELECT `year`, COUNT(*) AS total_cars
+FROM `car dekho`
+GROUP BY `year`
+HAVING total_cars > 100;
+    </pre>
+    <h2 style="color: #555;">Technologies Used</h2>
+    <ul>
+        <li><b>SQL:</b> For data extraction and querying.</li>
+        <li><b>MySQL:</b> Database management and execution of complex queries.</li>
+    </ul>
+    <h2 style="color: #555;">Data Source</h2>
+    <p>The dataset used in this analysis is sourced from the <code>car dekho</code> table, containing historical car availability data including year and fuel type.</p>
+    <h2 style="color: #555;">Future Improvements</h2>
+    <ul>
+        <li>Integrate more variables such as car brand and model for detailed analysis.</li>
+        <li>Include predictive analytics to forecast future inventory trends.</li>
+        <li>Enhance visualization using tools like Power BI or Tableau.</li>
+    </ul>
+    <h2 style="color: #555;">Contact</h2>
+    <p>For questions or feedback, feel free to reach out via:</p>
+    <ul>
+        <li>Email: <a class="contact-link" href="mailto:yousafawan0000@gmail.com">yousafawan0000@gmail.com</a></li>
+        <li>LinkedIn: <a class="contact-link" href="https://www.linkedin.com/in/muhammad-usaf/">Muhammad Yousaf</a></li>
+    </ul>
+    <h2 style="color: #555;">Conclusion</h2>
+    <p>This project goes beyond mere data analysis; it provides valuable insights that can influence strategic decisions in the automotive industry. By understanding trends in car availability and fuel type preferences, dealerships and manufacturers can better meet consumer demands and maximize profitability.</p>
+</body>
+        </section>

@@ -1,0 +1,180 @@
+<head>
+    <title>Data Professional Career Insights - README</title>
+    <style>
+        /* Project Details Section */
+        .project-details {
+            background-color: #edede9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 50px; /* Reduced top margin to 5px */
+            max-width: 1100px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h2 {
+            font-size: 32px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #000000;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-family: 'Kanit', sans-serif;
+        }
+    
+        .project-details h3 {
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            font-family:'Kanit', sans-serif;
+        }
+    
+        .project-details p {
+            font-size: 16px;
+            color: #000000;
+            line-height: 1.6;
+            text-align: justify;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+    
+        .project-details li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+    
+        /* Image Sizing */
+        .project-details img {
+            display: block;
+            margin: 20px auto;
+            width: 10%; /* Adjust the image width to 80% of the container */
+            max-width: 100px; /* Ensure images don’t get too large */
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        /* Responsive Design */
+        /* Medium Screens (Tablets) */
+        @media (max-width: 768px) {
+            .project-details {
+                margin: -5px auto 15px; /* Further reduced top margin */
+                padding: 20px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Images take full width on smaller screens */
+                max-width: 100%; /* Prevent images from being larger than the container */
+            }
+        }
+    
+        /* Mobile Screens */
+        @media (max-width: 480px) {
+            .project-details {
+                margin: -40px auto 15px; /* Minimal top margin for mobile */
+                padding: 15px;
+            }
+    
+            .project-details img {
+                width: 100%; /* Full width on mobile screens */
+                max-width: 100%; /* Images will be responsive */
+            }
+        }
+    </style>
+    
+</head>
+
+<section class="project-details">
+    <title>Mobile Sales Dashboard - README</title>
+</head>
+<body>
+    <h1>Mobile Sales Dashboard</h1>
+    <p>This project provides a comprehensive analysis of mobile sales data, leveraging key metrics such as Average Price, Sales, Quantity, and Transactions. The dashboard offers dynamic insights into sales trends, helping businesses understand performance and make informed decisions.</p>
+
+    <h2>Inspiration and Motivation</h2>
+    <p>In the ever-evolving mobile industry, understanding key sales metrics can help businesses optimize strategies, increase profitability, and stay ahead of trends. I created this dashboard to provide insights into mobile sales performance by analyzing price per unit, total sales, quantities sold, and transactions. This project aims to make it easier for mobile sales teams to track performance and identify areas for improvement.</p>
+
+    <h2>Purpose of the Project</h2>
+    <p>The main goal of this project is to visualize and analyze sales performance data for mobile products. The dashboard provides insights into key areas such as:</p>
+    <ul>
+        <li>Average Price per Unit</li>
+        <li>Month-to-Date (MTD) Total Sales</li>
+        <li>Comparison of Sales to Same Period Last Year</li>
+        <li>Total Quantity Sold</li>
+        <li>Transaction Count</li>
+    </ul>
+
+    <h2>Key Metrics and Formulas</h2>
+    <p>The dashboard leverages the following DAX formulas to calculate and visualize critical sales metrics:</p>
+    <ul>
+        <li><strong>Average Price:</strong> <code>Average_Price = AVERAGE(Sales_Data[Price Per Unit])</code></li>
+        <li><strong>MTD Total Sales:</strong> <code>MTD = TOTALMTD([Total_Sales], Custom_Calendar[Date].[Date])</code></li>
+        <li><strong>Sales Comparison to Same Period Last Year:</strong> <code>Same Period Last Year = CALCULATE([Total_Sales], SAMEPERIODLASTYEAR(Custom_Calendar[Date].[Date]))</code></li>
+        <li><strong>Total Quantity Sold:</strong> <code>Total_Quantity = SUM(Sales_Data[Units Sold])</code></li>
+        <li><strong>Total Sales:</strong> <code>Total_Sales = SUMX(Sales_Data, Sales_Data[Units Sold] * Sales_Data[Price Per Unit])</code></li>
+        <li><strong>Total Transactions:</strong> <code>Transactions = COUNTROWS(Sales_Data)</code></li>
+    </ul>
+
+    <h2>Data Source</h2>
+    <p>The data used in this project is sourced from <strong>Sales_Data</strong>, which includes records of mobile product sales, including the price per unit, units sold, and transaction details. The data is structured to allow dynamic analysis over time and across different sales periods.</p>
+
+    <h2>Dashboard Overview</h2>
+
+    <h3>1. Sales Overview Dashboard</h3>
+    <img src="MTD Report.jpg" alt="Sales Overview Dashboard" style="width:100%; max-width:800px; height: auto;">
+    <p>This dashboard gives a quick overview of the sales performance, including:</p>
+    <ul>
+        <li>Average price per unit</li>
+        <li>Month-to-date total sales</li>
+        <li>Comparison of sales to the same period last year</li>
+        <li>Total quantity sold</li>
+    </ul>
+    <p><strong>Questions Answered:</strong></p>
+    <ul>
+        <li>What is the average price per unit sold?</li>
+        <li>How do current sales compare to the same period last year?</li>
+        <li>What is the total quantity sold month-to-date?</li>
+    </ul>
+
+    <h3>2. Transaction Insights</h3>
+    <img src="transaction.jpg" alt="Transaction Insights Dashboard" style="width:100%; max-width:800px;">
+    <p>This dashboard focuses on transaction metrics, including:</p>
+    <ul>
+        <li>Total number of transactions</li>
+        <li>Average transaction size</li>
+        <li>Sales trends over time</li>
+    </ul>
+    <p><strong>Questions Answered:</strong></p>
+    <ul>
+        <li>How many transactions have been completed this period?</li>
+        <li>What is the average size of transactions?</li>
+        <li>How have sales trends evolved over time?</li>
+    </ul>
+
+    <h2>Key Questions Answered</h2>
+    <ul>
+        <li>What is the average price per unit?</li>
+        <li>How does total sales compare month-to-date versus the same period last year?</li>
+        <li>How much quantity has been sold in the current period?</li>
+        <li>How many transactions have occurred in total?</li>
+    </ul>
+
+    <h2>Tools Used</h2>
+    <ul>
+        <li>Microsoft Power BI for creating and visualizing the dashboard</li>
+        <li>DAX formulas for calculating sales metrics and performance comparisons</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>This dashboard offers valuable insights into mobile sales performance, enabling sales teams to track trends, compare current sales to historical performance, and make data-driven decisions. By utilizing key metrics and visualizations, the dashboard serves as a vital tool for sales optimization and forecasting in the mobile industry.</p>
+
+    <h2>Contact</h2>
+    <p>If you have any questions or feedback, feel free to reach out to the project creator.</p>
+</body>
+</section>
